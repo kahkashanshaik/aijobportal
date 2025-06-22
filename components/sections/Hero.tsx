@@ -7,15 +7,52 @@ import { ArrowRight, Play, Zap, Target, Brain } from 'lucide-react';
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black-primary">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-primary/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-orange-primary/5 to-transparent rounded-full"></div>
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 opacity-30">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(161, 161, 170, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(161, 161, 170, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
       </div>
-      
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,76,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,76,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+
+      {/* Radial gradients overlay */}
+      <div className="absolute inset-0">
+        {/* Primary orange radial gradient - top left */}
+        <div 
+          className="absolute top-0 left-0 w-[800px] h-[800px] opacity-20"
+          style={{
+            background: `radial-gradient(circle at center, #FF4C00 0%, rgba(255, 76, 0, 0.3) 25%, rgba(255, 76, 0, 0.1) 50%, transparent 70%)`
+          }}
+        ></div>
+        
+        {/* Secondary orange radial gradient - bottom right */}
+        <div 
+          className="absolute bottom-0 right-0 w-[700px] h-[700px] opacity-15"
+          style={{
+            background: `radial-gradient(circle at center, #FF6A00 0%, rgba(255, 106, 0, 0.3) 25%, rgba(255, 106, 0, 0.1) 50%, transparent 70%)`
+          }}
+        ></div>
+        
+        {/* Accent gradient - center */}
+        <div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10"
+          style={{
+            background: `radial-gradient(circle at center, #FF8A00 0%, rgba(255, 138, 0, 0.2) 30%, rgba(255, 138, 0, 0.05) 60%, transparent 80%)`
+          }}
+        ></div>
+      </div>
+
+      {/* Animated floating elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-primary/8 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
