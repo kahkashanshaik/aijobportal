@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Briefcase, TrendingUp, Calendar, Star, Plus } from 'lucide-react';
+import { Brain, Briefcase, TrendingUp, Calendar, Star, Plus, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CandidateDashboard() {
@@ -89,72 +89,81 @@ export default function CandidateDashboard() {
   ];
 
   if (!user) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black-primary">
+        <div className="text-center">
+          <div className="w-16 h-16 gradient-orange rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <Brain className="w-8 h-8 text-white" />
+          </div>
+          <p className="text-gray-muted text-lg">Loading your dashboard...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-black-primary">
+      <div className="container mx-auto px-6 py-12">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">
-            Welcome back, {user.firstName}!
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-6xl font-black text-gray-primary mb-4 tracking-tight">
+            WELCOME BACK, <span className="gradient-orange bg-clip-text text-transparent">{user.firstName.toUpperCase()}</span>!
           </h1>
-          <p className="text-slate-600">
-            Ready to take your career to the next level?
+          <p className="text-xl text-gray-muted">
+            Ready to dominate your next interview?
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Interviews</CardTitle>
-              <Brain className="h-4 w-4 text-blue-600" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <Card className="glass-effect border-black-tertiary hover:border-orange-primary/50 transition-all duration-300 group">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+              <CardTitle className="text-sm font-bold text-gray-muted tracking-wider uppercase">Total Interviews</CardTitle>
+              <Brain className="h-6 w-6 text-orange-primary group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalInterviews}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-3xl font-black text-gray-primary">{stats.totalInterviews}</div>
+              <p className="text-xs text-orange-primary font-medium">
                 +2 from last week
               </p>
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Average Score</CardTitle>
-              <Star className="h-4 w-4 text-yellow-600" />
+          <Card className="glass-effect border-black-tertiary hover:border-orange-primary/50 transition-all duration-300 group">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+              <CardTitle className="text-sm font-bold text-gray-muted tracking-wider uppercase">Average Score</CardTitle>
+              <Star className="h-6 w-6 text-orange-primary group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.averageScore}/10</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-3xl font-black text-gray-primary">{stats.averageScore}/10</div>
+              <p className="text-xs text-orange-primary font-medium">
                 +0.5 improvement
               </p>
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Jobs Applied</CardTitle>
-              <Briefcase className="h-4 w-4 text-green-600" />
+          <Card className="glass-effect border-black-tertiary hover:border-orange-primary/50 transition-all duration-300 group">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+              <CardTitle className="text-sm font-bold text-gray-muted tracking-wider uppercase">Jobs Applied</CardTitle>
+              <Briefcase className="h-6 w-6 text-orange-primary group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.jobsApplied}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-3xl font-black text-gray-primary">{stats.jobsApplied}</div>
+              <p className="text-xs text-orange-primary font-medium">
                 3 pending responses
               </p>
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Credits Remaining</CardTitle>
-              <TrendingUp className="h-4 w-4 text-purple-600" />
+          <Card className="glass-effect border-black-tertiary hover:border-orange-primary/50 transition-all duration-300 group">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+              <CardTitle className="text-sm font-bold text-gray-muted tracking-wider uppercase">Credits</CardTitle>
+              <Zap className="h-6 w-6 text-orange-primary group-hover:scale-110 transition-transform" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.credits}</div>
-              <p className="text-xs text-muted-foreground">
-                <Link href="/pricing" className="text-blue-600 hover:underline">
+              <div className="text-3xl font-black text-gray-primary">{stats.credits}</div>
+              <p className="text-xs text-orange-primary font-medium">
+                <Link href="/pricing" className="hover:underline">
                   Buy more credits
                 </Link>
               </p>
@@ -164,51 +173,51 @@ export default function CandidateDashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Quick Actions */}
-          <Card>
+          <Card className="glass-effect border-black-tertiary">
             <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-2xl font-bold text-gray-primary tracking-wide uppercase">Quick Actions</CardTitle>
+              <CardDescription className="text-gray-muted text-lg">
                 Start practicing or find your next opportunity
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                <Brain className="mr-2 h-4 w-4" />
-                Start Mock Interview
+              <Button className="w-full gradient-orange hover:glow-orange text-white font-bold py-4 rounded-xl text-lg tracking-wide uppercase transition-all duration-300">
+                <Brain className="mr-3 h-6 w-6" />
+                START MOCK INTERVIEW
               </Button>
-              <Button variant="outline" className="w-full">
-                <Briefcase className="mr-2 h-4 w-4" />
-                Browse Jobs
+              <Button variant="outline" className="w-full border-2 border-orange-primary/50 hover:border-orange-primary text-orange-primary hover:bg-orange-primary/10 font-bold py-4 rounded-xl text-lg tracking-wide uppercase">
+                <Briefcase className="mr-3 h-6 w-6" />
+                BROWSE JOBS
               </Button>
-              <Button variant="outline" className="w-full">
-                <Plus className="mr-2 h-4 w-4" />
-                Update Profile
+              <Button variant="outline" className="w-full border-2 border-orange-primary/50 hover:border-orange-primary text-orange-primary hover:bg-orange-primary/10 font-bold py-4 rounded-xl text-lg tracking-wide uppercase">
+                <Plus className="mr-3 h-6 w-6" />
+                UPDATE PROFILE
               </Button>
             </CardContent>
           </Card>
 
           {/* Recent Interviews */}
-          <Card>
+          <Card className="glass-effect border-black-tertiary">
             <CardHeader>
-              <CardTitle>Recent Interviews</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-2xl font-bold text-gray-primary tracking-wide uppercase">Recent Interviews</CardTitle>
+              <CardDescription className="text-gray-muted text-lg">
                 Your latest mock interview sessions
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentInterviews.map((interview) => (
-                  <div key={interview.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={interview.id} className="flex items-center justify-between p-6 glass-effect border border-black-tertiary rounded-xl hover:border-orange-primary/30 transition-all duration-300">
                     <div>
-                      <h4 className="font-medium">{interview.position}</h4>
-                      <p className="text-sm text-slate-600">{interview.company}</p>
-                      <p className="text-xs text-slate-500">{interview.date}</p>
+                      <h4 className="font-bold text-gray-primary text-lg">{interview.position}</h4>
+                      <p className="text-gray-muted">{interview.company}</p>
+                      <p className="text-xs text-gray-subtle">{interview.date}</p>
                     </div>
                     <div className="text-right">
-                      <Badge variant="secondary" className="mb-1">
+                      <Badge className="gradient-orange text-white mb-2 font-bold">
                         Score: {interview.score}/10
                       </Badge>
-                      <p className="text-xs text-slate-500">Completed</p>
+                      <p className="text-xs text-gray-subtle uppercase tracking-wide">Completed</p>
                     </div>
                   </div>
                 ))}
@@ -217,30 +226,30 @@ export default function CandidateDashboard() {
           </Card>
 
           {/* Recommended Jobs */}
-          <Card className="lg:col-span-2">
+          <Card className="lg:col-span-2 glass-effect border-black-tertiary">
             <CardHeader>
-              <CardTitle>Recommended Jobs</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-2xl font-bold text-gray-primary tracking-wide uppercase">Recommended Jobs</CardTitle>
+              <CardDescription className="text-gray-muted text-lg">
                 Jobs that match your skills and preferences
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {recommendedJobs.map((job) => (
-                  <div key={job.id} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between mb-2">
+                  <div key={job.id} className="p-6 glass-effect border border-black-tertiary rounded-xl hover:border-orange-primary/50 hover:glow-orange transition-all duration-300 group">
+                    <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h4 className="font-medium">{job.title}</h4>
-                        <p className="text-sm text-slate-600">{job.company}</p>
-                        <p className="text-xs text-slate-500">{job.location}</p>
+                        <h4 className="font-bold text-gray-primary text-lg">{job.title}</h4>
+                        <p className="text-gray-muted">{job.company}</p>
+                        <p className="text-xs text-gray-subtle">{job.location}</p>
                       </div>
-                      <Badge variant="secondary">
+                      <Badge className="gradient-orange text-white font-bold">
                         {job.match}% match
                       </Badge>
                     </div>
-                    <p className="text-sm font-medium text-green-600 mb-3">{job.salary}</p>
-                    <Button size="sm" className="w-full">
-                      Apply Now
+                    <p className="text-lg font-bold text-orange-primary mb-4">{job.salary}</p>
+                    <Button className="w-full gradient-orange hover:glow-orange text-white font-bold py-3 rounded-xl tracking-wide uppercase transition-all duration-300">
+                      APPLY NOW
                     </Button>
                   </div>
                 ))}

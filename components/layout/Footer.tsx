@@ -35,28 +35,30 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-900 text-slate-300">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+    <footer className="bg-black-primary border-t border-black-tertiary">
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-12 h-12 gradient-orange rounded-xl flex items-center justify-center">
+                <Brain className="w-7 h-7 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">AI JobPortal</span>
+              <span className="text-2xl font-bold text-gray-primary tracking-tight">
+                AI<span className="text-orange-primary">PORTAL</span>
+              </span>
             </div>
-            <p className="text-slate-400 mb-6 max-w-sm">
-              Empowering careers with AI-driven job matching and interview preparation.
+            <p className="text-gray-muted mb-8 max-w-sm leading-relaxed text-lg">
+              Empowering careers with cutting-edge AI technology and intelligent job matching.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                  className="w-12 h-12 glass-effect border border-black-tertiary rounded-xl flex items-center justify-center hover:border-orange-primary hover:glow-orange transition-all duration-300 group"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-6 h-6 text-gray-muted group-hover:text-orange-primary transition-colors" />
                 </a>
               ))}
             </div>
@@ -64,11 +66,11 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Product</h3>
-            <ul className="space-y-3">
+            <h3 className="text-gray-primary font-bold mb-8 text-lg tracking-wider uppercase">PRODUCT</h3>
+            <ul className="space-y-4">
               {links.product.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-200">
+                  <a href={link.href} className="text-gray-muted hover:text-orange-primary transition-colors duration-300 text-lg">
                     {link.name}
                   </a>
                 </li>
@@ -77,11 +79,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-gray-primary font-bold mb-8 text-lg tracking-wider uppercase">COMPANY</h3>
+            <ul className="space-y-4">
               {links.company.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-200">
+                  <a href={link.href} className="text-gray-muted hover:text-orange-primary transition-colors duration-300 text-lg">
                     {link.name}
                   </a>
                 </li>
@@ -90,11 +92,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
+            <h3 className="text-gray-primary font-bold mb-8 text-lg tracking-wider uppercase">RESOURCES</h3>
+            <ul className="space-y-4">
               {links.resources.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-200">
+                  <a href={link.href} className="text-gray-muted hover:text-orange-primary transition-colors duration-300 text-lg">
                     {link.name}
                   </a>
                 </li>
@@ -103,11 +105,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-3">
+            <h3 className="text-gray-primary font-bold mb-8 text-lg tracking-wider uppercase">LEGAL</h3>
+            <ul className="space-y-4">
               {links.legal.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors duration-200">
+                  <a href={link.href} className="text-gray-muted hover:text-orange-primary transition-colors duration-300 text-lg">
                     {link.name}
                   </a>
                 </li>
@@ -117,12 +119,12 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">
-            © 2025 AI JobPortal. All rights reserved.
+        <div className="border-t border-black-tertiary mt-16 pt-12 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-muted text-lg">
+            © 2025 AI PORTAL. All rights reserved.
           </p>
-          <p className="text-slate-400 text-sm mt-4 md:mt-0">
-            Made with ❤️ for job seekers worldwide
+          <p className="text-gray-muted text-lg mt-4 md:mt-0">
+            Made with <span className="text-orange-primary">❤️</span> for ambitious professionals
           </p>
         </div>
       </div>

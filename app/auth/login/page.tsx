@@ -57,35 +57,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Brain className="w-5 h-5 text-white" />
+    <div className="min-h-screen bg-black-primary flex items-center justify-center p-6 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      </div>
+      
+      <Card className="w-full max-w-md glass-effect border-black-tertiary relative z-10">
+        <CardHeader className="text-center pb-8">
+          <div className="flex items-center justify-center space-x-3 mb-8">
+            <div className="w-12 h-12 gradient-orange rounded-xl flex items-center justify-center">
+              <Brain className="w-7 h-7 text-white" />
             </div>
-            <span className="text-xl font-bold text-slate-900">AI JobPortal</span>
+            <span className="text-2xl font-bold text-gray-primary tracking-tight">
+              AI<span className="text-orange-primary">PORTAL</span>
+            </span>
           </div>
-          <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
-          <CardDescription>
-            Sign in to your account to continue your job search journey
+          <CardTitle className="text-3xl font-black text-gray-primary tracking-wide uppercase">WELCOME BACK</CardTitle>
+          <CardDescription className="text-gray-muted text-lg mt-4">
+            Sign in to continue your career journey
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-3">
+              <Label htmlFor="email" className="text-gray-primary font-medium tracking-wide uppercase text-sm">Email</Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="bg-black-secondary border-black-tertiary text-gray-primary placeholder:text-gray-subtle focus:border-orange-primary focus:ring-orange-primary/20 h-12 rounded-xl"
                 required
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+            <div className="space-y-3">
+              <Label htmlFor="password" className="text-gray-primary font-medium tracking-wide uppercase text-sm">Password</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -93,17 +102,18 @@ export default function LoginPage() {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  className="bg-black-secondary border-black-tertiary text-gray-primary placeholder:text-gray-subtle focus:border-orange-primary focus:ring-orange-primary/20 h-12 rounded-xl pr-12"
                   required
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-subtle hover:text-orange-primary transition-colors"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="w-4 h-4 text-slate-500" />
+                    <EyeOff className="w-5 h-5" />
                   ) : (
-                    <Eye className="w-4 h-4 text-slate-500" />
+                    <Eye className="w-5 h-5" />
                   )}
                 </button>
               </div>
@@ -111,23 +121,23 @@ export default function LoginPage() {
             <div className="flex items-center justify-between">
               <Link
                 href="/auth/forgot-password"
-                className="text-sm text-blue-600 hover:text-blue-700"
+                className="text-sm text-orange-primary hover:text-orange-secondary transition-colors font-medium"
               >
                 Forgot password?
               </Link>
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              className="w-full gradient-orange hover:glow-orange text-white font-bold py-4 rounded-xl text-lg tracking-wide uppercase transition-all duration-300"
               disabled={isLoading}
             >
-              {isLoading ? 'Signing in...' : 'Sign In'}
+              {isLoading ? 'SIGNING IN...' : 'SIGN IN'}
             </Button>
           </form>
-          <div className="mt-6 text-center">
-            <p className="text-sm text-slate-600">
+          <div className="mt-8 text-center">
+            <p className="text-gray-muted">
               Don't have an account?{' '}
-              <Link href="/auth/register" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/auth/register" className="text-orange-primary hover:text-orange-secondary font-bold transition-colors">
                 Sign up
               </Link>
             </p>
